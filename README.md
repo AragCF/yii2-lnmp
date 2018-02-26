@@ -42,6 +42,6 @@ memory: 1024
 ## Include
 
 * Nginx
-* PHP
+* PHP 7
 * MariaDB
-* Elasticsearch
+* Elasticsearch 5.6+
