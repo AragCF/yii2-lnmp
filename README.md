@@ -10,10 +10,10 @@ end
 ```
 
 ## Configure
-
 * cp ./vagrant/config/vagrant-local.example.yml ./vagrant/config/vagrant-local.yml
 * nano ./vagrant/config/vagrant-local.yml
 
+### Vagrantfile
 ```yaml
 # Your personal GitHub token
 github_token: <your-personal-github-token>
