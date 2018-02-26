@@ -44,4 +44,4 @@ memory: 1024
 * Nginx - default install
 * PHP 7 - default install
 * MariaDB - default install
-* Elasticsearch 5.6+ - default notinstall
+* Elasticsearch 5.6+ - default not install
