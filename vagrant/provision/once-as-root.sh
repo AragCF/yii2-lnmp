@@ -28,10 +28,12 @@ info "Install development components"
 apt-get install -y autoconf automake libtool m4 libevent-2.0-5 libevent-core-2.0-5 libevent-extra-2.0-5 libevent-openssl-2.0-5 libevent-pthreads-2.0-5 libevent-dev
 
 info "install packages"
-for file in `find /app/vagrant/provision/packages -type f`
+for file in `find /app/vagrant/provision/packages -type f | sort -n`
 do
-	info "Install ${file}"
-	. "${file}"
+	if [[ $file =~ .*\.sh$ ]]; then
+		info "Install ${file}"
+		. "${file}"
+	fi
 done
 
 addgroup vagrant www-data
