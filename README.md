@@ -2,17 +2,18 @@
 
 ## Base on
 
-'''ruby
+```ruby
 Vagrant.configure("2") do |config|
   config.vm.box = "debian/stretch64"
 end
-'''
+```
 
 ## Configure
 
 * cp ./vagrant/config/vagrant-local.example.yml ./vagrant/config/vagrant-local.yml
 * nano ./vagrant/config/vagrant-local.yml
-'''
+
+```yaml
 # Your personal GitHub token
 github_token: <your-personal-github-token>
 # Read more: https://github.com/blog/1509-personal-api-tokens
@@ -35,7 +36,7 @@ cpus: 1
 
 # Virtual machine RAM
 memory: 1024
-'''
+```
 
 ## Include
 
