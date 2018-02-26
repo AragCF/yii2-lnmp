@@ -1,7 +1,8 @@
 # Debian/Linux + Nginx + MariaDB + PHP 7
 
-## Base on
+## Based on
 
+https://app.vagrantup.com/debian/boxes/stretch64
 ```ruby
 Vagrant.configure("2") do |config|
   config.vm.box = "debian/stretch64"
