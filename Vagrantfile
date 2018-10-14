@@ -77,7 +77,7 @@ Vagrant.configure(2) do |config|
 
   config.trigger.after [:destroy]  do |trigger|
     trigger.info = "Remove folders after destroy!"
-    trigger.run = {inline: "rm -Rf ./.vagrant && rm -Rf ./project/* && rm -Rf ./vagrant/etc/nginx/log/*"}
+    trigger.run = {inline: "rm -Rf ./.vagrant || rm -Rf ./project/* || rm -Rf ./vagrant/etc/nginx/log/*"}
   end
  
 end

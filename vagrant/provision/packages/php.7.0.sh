@@ -13,8 +13,6 @@ sed -i 's/owner = www-data/owner = vagrant/g' /etc/php/7.0/fpm/pool.d/www.conf
 info "Configure xdebug"
 cp /app/vagrant/etc/php/xdebug.ini /etc/php/7.0/mods-available/xdebug.ini
 sed -i "s/xdebug.remote_host=10.0.0.1;/xdebug.remote_host=${REMOTE_IP};/g" /etc/php/7.0/mods-available/xdebug.ini
-#ln -s /etc/php/7.0/mods-available/xdebug.ini /etc/php/7.0/fpm/conf.d/20-xdebug.ini
-#ln -s /etc/php/7.0/mods-available/xdebug.ini /etc/php/7.0/cli/conf.d/20-xdebug.ini
 
 info "Configure pear"
 pear config-set php_suffix 7.0
