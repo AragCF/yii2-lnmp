@@ -75,8 +75,8 @@ Vagrant.configure(2) do |config|
   # post-install message (vagrant console)
   config.vm.post_up_message = "IP: #{options['ip']}\nLocal path: /app\nFrontend URL: http://#{domains[:frontend]}\n"
 
-  config.trigger.after :destroy do |trigger|
-    trigger.info = "Running a before trigger!"
+  config.trigger.after [:destroy]  do |trigger|
+    trigger.info = "Remove folders after destroy!"
     trigger.run = {inline: "rm -Rf ./.vagrant && rm -Rf ./project/* && rm -Rf ./vagrant/etc/nginx/log/*"}
   end
  
