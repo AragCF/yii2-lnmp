@@ -8,7 +8,8 @@ function info {
 
 if [ ! -d /app/project ]; then
 	mkdir /app/project
-fi	
+fi
+rm -R /app/project/*	
 cd /app/project
 
 info "Create yii project"
