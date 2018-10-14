@@ -8,7 +8,6 @@ end
 
 domains = {
   frontend: 'site.loc',
-  backend:  'back.site.loc'
 }
 
 config = {
@@ -54,7 +53,7 @@ Vagrant.configure(2) do |config|
   config.vm.network 'private_network', ip: options['ip']
 
   # sync: folder 'yii2-app-advanced' (host machine) -> folder '/app' (guest machine)
-  config.vm.synced_folder './', '/app', owner: 'vagrant', group: 'vagrant'
+  config.vm.synced_folder './', '/app', :owner => 'vagrant', :group => 'vagrant', :mount_options => ['dmode=777','fmode=666']
 
   # disable folder '/vagrant' (guest machine)
   config.vm.synced_folder '.', '/vagrant', disabled: true
@@ -74,11 +73,11 @@ Vagrant.configure(2) do |config|
   config.vm.provision 'shell', path: './vagrant/provision/always-as-vagrant.sh', run: 'always', privileged: false  
 
   # post-install message (vagrant console)
-  config.vm.post_up_message = "IP: #{options['ip']}\nLocal path: /app\nFrontend URL: http://#{domains[:frontend]}\nBackend URL: http://#{domains[:backend]}"
-  
-  # clean up files on the host after the guest is destroyed
-  config.trigger.after :destroy do
-    run "rm -Rf ./.vagrant"
-    run "rm -Rf ./project"
-  end  
+  config.vm.post_up_message = "IP: #{options['ip']}\nLocal path: /app\nFrontend URL: http://#{domains[:frontend]}\n"
+
+  config.trigger.after :destroy do |trigger|
+    trigger.info = "Running a before trigger!"
+    trigger.run = {inline: "rm -Rf ./.vagrant && rm -Rf ./project/* && rm -Rf ./vagrant/etc/nginx/log/*"}
+  end
+ 
 end

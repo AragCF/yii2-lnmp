@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+apt-get install -y postgresql-9.6 postgresql-contrib-9.6
+
+echo "ALTER USER postgres WITH ENCRYPTED PASSWORD 'postgres';" |sudo -u postgres psql
+
+echo "
+local      all     postgres     md5
+" >> /etc/postgresql/9.6/main/pg_hba.conf
+ 
+service postgresql restart

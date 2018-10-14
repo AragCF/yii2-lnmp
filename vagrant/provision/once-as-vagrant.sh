@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+function info {
+  echo " "
+  echo "--> $1"
+  echo " "
+}
+
 if [ ! -d /app/project ]; then
 	mkdir /app/project
 fi	
