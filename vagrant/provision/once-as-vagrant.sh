@@ -18,4 +18,4 @@ info "Install vendors"
 composer install
 
 info "Project initialization"
-./init --env 0
+php ./init --env 0
