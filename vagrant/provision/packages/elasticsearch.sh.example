@@ -5,7 +5,7 @@ info "Install Elasticsearch"
 VERSION=5.6.4
 es_memory='1G'
  
-apt-get install openjdk-8-jdk
+apt-get install -y openjdk-8-jdk
 if [ -f /etc/alternatives/java ]; then
 	rm /etc/alternatives/java
 fi
